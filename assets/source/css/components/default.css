@@ -1,0 +1,327 @@
+/*RESET*/
+body, h1, h2, ul, li, p, dd, dt, dl {
+  margin: 0px;
+  padding: 0px;
+}
+
+h1, h2 {
+  font-weight: 100;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  background: #faf6ed;
+  color: #222;
+  -webkit-font-smoothing: antialiased;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 120px minmax(300px, 800px) 1fr;
+}
+
+html.maior {
+  font-size: 30px;
+}
+
+.menu {
+  grid-column: 3 / 5;
+  margin: 2rem 0;
+  background: #fb5;
+}
+
+.menu ul {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+
+.menu li a {
+  display: block;
+  padding: 10px;
+  margin-right: 10px;
+  color: #222;
+  text-decoration: none;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: .825rem;
+  letter-spacing: .1em;
+}
+
+.grid-section {
+  grid-column: 2 / 4;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 90px 300px 1fr;
+  gap: 20px;
+  margin-bottom: 4rem;
+}
+
+.title {
+  font-family: 'Playfair Display SC', georgia;
+  font-size: 4rem;
+  line-height: 1;
+  margin-bottom: 1rem;
+  grid-column: 1 / 4;
+}
+
+.title-animals {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: .675rem;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  margin-bottom: 1rem;
+  color: #e54;
+}
+
+.title-animals h2::before {
+  content: '';
+  display: inline-block;
+  width: 40px;
+  height: 10px;
+  margin-right: 10px;
+  background: #fb5;
+}
+
+.paragraph {
+  font-family: Helvetica, Arial, sans-serif;
+  line-height: 1.2;
+  margin: 1rem;
+}
+
+.animal-list {
+  height: 370px;
+  overflow-y: scroll;
+  grid-column: 2;
+}
+
+.animal-list img {
+  cursor: pointer;
+}
+
+.animal-list::-webkit-scrollbar {
+  width: 18px;
+}
+
+.animal-list::-webkit-scrollbar-thumb {
+  background: #fb5;
+  border-left: 4px solid #faf6ed;
+  border-right: 4px solid #faf6ed;
+}
+
+.animal-list::-webkit-scrollbar-track {
+  background: #faf6ed;
+}
+
+.animals-description {
+  grid-column: 3;
+}
+
+.animals-description section{
+  margin-bottom: 3rem;
+}
+
+.faq-list {
+  grid-column: 2 / 4;
+}
+
+.faq-list dt {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: bold;
+  margin-top: 2rem;
+  margin-bottom: .5rem;
+  color: #e54;
+  cursor: pointer
+}
+
+.faq-list dt::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 10px;
+  margin-right: 10px;
+  background: #fb5;
+}
+
+.faq-list dd {
+  font-family: Helvetica, Arial, sans-serif;
+  margin-bottom: .5rem;
+  margin-left: 30px;
+}
+
+.mapa {
+  grid-column: 2;
+}
+
+.dados {
+  grid-column: 3;
+}
+
+.dados li {
+  margin-bottom: 1rem;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.dados li::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 10px;
+  margin-right: 10px;
+  background: #fb5;
+}
+
+.dados li .btc-price {
+  background: #3f4;
+  padding: .2rem .5rem;
+  font-weight: bold;
+  border-radius: 2px;
+}
+
+.footer {
+  grid-column: 3 / 5;
+  margin-bottom: 2rem;
+  background: #fb5;
+}
+
+.map {
+  grid-column: 2;
+}
+
+.copy {
+  padding: 20px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+
+/*Responsivo*/
+
+@media screen and (max-width: 700px) {
+  .grid-container {
+      grid-template-columns: 1fr;
+  }
+
+  .menu, .grid-section, .footer {
+      grid-column: 1;
+  }
+
+  .grid-section {
+      grid-template-columns: 100px 1fr;
+      gap: 10px;
+  }
+  
+  .animal-list {
+      grid-column: 1;
+  }
+
+  .faq-list, .dados, .map {
+      grid-column: 1 / 3;
+  }
+
+  .grid-section .title {
+      font-size: 1.5rem;
+  }
+
+  .menu {
+      margin-top: 0px;
+  }
+
+  .footer {
+      margin-bottom: 0px;
+  }
+}
+
+/*JavaScript Style - Tab Nav*/
+.js [data-tab='content'] section {
+  display: none;
+}
+
+[data-tab='content'] section.active {
+  display: block !important;
+}
+
+[data-tab='content'] section.active.show-right {
+  animation: show-right .5s forwards;
+}
+
+[data-tab='content'] section.active.show-down {
+  animation: show-down .5s forwards;
+}
+
+@keyframes show-right {
+  from {
+      opacity: 0;
+      transform: translate3d(-30px, 0, 0);
+  }
+
+  to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes show-down {
+  from {
+      opacity: 0;
+      transform: translate3d(0, -30px, 0);
+  }
+
+  to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+  }
+}
+
+/*JavaScript Style - Accordion*/
+[data-anime="accordion"] dt::after {
+  content: '⬎';
+  margin-left: 10px;
+}
+
+[data-anime="accordion"] dt.active::after {
+  content: '⬏';
+}
+
+[data-anime="accordion"] dd {
+  display: none;
+}
+
+[data-anime="accordion"] dd.active {
+  display: block;
+  animation: slidDown .5s forwards;
+}
+
+@keyframes slidDown {
+  from {
+      opacity: 0;
+      max-height: 0;
+  }
+
+  to {
+      opacity: 1;
+      max-height: 100px;
+  }
+}
+
+/**JavaScript Style - Animation Scroll*/
+.js [data-anime="scroll"] {
+  opacity: 0;
+  transform: translate3d(-30px, 0, 0);
+  transition: .3s;
+}
+
+.js [data-anime="scroll"].active {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}

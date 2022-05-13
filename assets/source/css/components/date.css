@@ -1,0 +1,15 @@
+[data-wek]::after {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #e54;
+    border: 1px solid black;
+    margin-left: 4px;
+  }
+  
+  [data-wek].open::after {
+    background: #3f4;
+  }
+  
