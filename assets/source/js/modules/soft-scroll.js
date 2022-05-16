@@ -1,18 +1,34 @@
-export default function initSoftScroll() {
-  const internalLink = document.querySelectorAll('[data-menu="soft"] a[href^="#"]')
+export default class softScroll {
+  constructor(links, options) {
+    this.internalLink = document.querySelectorAll(links)
+    console.log(links)
+    if (options === undefined) {
+      this.options = { behavior: 'smooth', block: 'start' };
+    } else {
+      this.options = options;
+    }
 
-  function scrollToSection(event) {
+    this.scrollToSection = this.scrollToSection.bind(this)
+  }
+
+  scrollToSection(event) {
     event.preventDefault()
-    const href = this.getAttribute('href')
+    const href = event.currentTarget.getAttribute('href')
     const section = document.querySelector(href)
 
-    section.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start',
+    section.scrollIntoView(this.options)
+  }
+
+  addLinkEvent() {
+    this.internalLink.forEach((link) => {
+      link.addEventListener('click', this.scrollToSection)
     })
   }
 
-  internalLink.forEach((link) => {
-    link.addEventListener('click', scrollToSection)
-  })
+  init() {
+    if (this.internalLink.length) {
+      this.addLinkEvent()
+    }
+    return this
+  }
 }
