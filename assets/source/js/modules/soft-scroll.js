@@ -1,7 +1,6 @@
 export default class softScroll {
   constructor(links, options) {
     this.internalLink = document.querySelectorAll(links)
-    console.log(links)
     if (options === undefined) {
       this.options = { behavior: 'smooth', block: 'start' };
     } else {
