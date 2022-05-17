@@ -3,7 +3,7 @@ import initAnimationScroll from './modules/animation-scroll.js'
 import Accordion from './modules/accordion.js'
 import TabNav from './modules/tabnav.js'
 import Modal from './modules/modal.js'
-import initTooltip from './modules/tooltip.js'
+import Tooltip from './modules/tooltip.js'
 import initDropdown from './modules/dropdown.js'
 import initMenuMobile from './modules/menu-mobile.js'
 import initDateObject from './modules/date-object.js'
@@ -22,8 +22,10 @@ tabNav.init()
 const modal = new Modal('[data-modal="show"]', '[data-modal="closer"]', '[data-modal="modal"]')
 modal.init()
 
+const tooltip = new Tooltip('[data-tooltip]')
+tooltip.init()
+
 initAnimationScroll()
-initTooltip()
 initDropdown()
 initMenuMobile()
 initDateObject()
