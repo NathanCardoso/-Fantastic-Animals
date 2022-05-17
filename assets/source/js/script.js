@@ -2,7 +2,7 @@ import SoftScroll from './modules/soft-scroll.js'
 import initAnimationScroll from './modules/animation-scroll.js'
 import Accordion from './modules/accordion.js'
 import TabNav from './modules/tabnav.js'
-import initModal from './modules/modal.js'
+import Modal from './modules/modal.js'
 import initTooltip from './modules/tooltip.js'
 import initDropdown from './modules/dropdown.js'
 import initMenuMobile from './modules/menu-mobile.js'
@@ -19,8 +19,10 @@ accordion.init()
 const tabNav = new TabNav('[data-tab="menu"] li', '[data-tab="content"] section')
 tabNav.init()
 
+const modal = new Modal('[data-modal="show"]', '[data-modal="closer"]', '[data-modal="modal"]')
+modal.init()
+
 initAnimationScroll()
-initModal()
 initTooltip()
 initDropdown()
 initMenuMobile()

@@ -1,22 +1,43 @@
-export default function initModal() {
-  const modalShow = document.querySelector('[data-modal="show"]')
-  const modalCloser = document.querySelector('[data-modal="closer"]')
-  const modalContainer = document.querySelector('[data-modal="modal"]')
+export default class Modal {
+  constructor(buttonShow, buttonCloser, modalContainer) {
+    this.modalShow = document.querySelector(buttonShow)
+    this.modalCloser = document.querySelector(buttonCloser)
+    this.modalContainer = document.querySelector(modalContainer)
 
-  function showModal(event) {
-    event.preventDefault()
-    modalContainer.classList.toggle('active')
+    //bind this to the callback to refer to the object fro class
+    this.eventToggleModal = this.eventToggleModal.bind(this)
+    this.closerClickModal = this.closerClickModal.bind(this)
   }
 
-  function closerModal(event) {
-    if (event.target === this) {
-      showModal(event)
+  //open and closer the modal
+  toggleModal() {
+    this.modalContainer.classList.toggle('active')
+  }
+
+  //add events in the toggle modal
+  eventToggleModal(e) {
+    e.preventDefault()
+    this.toggleModal('active')
+  }
+
+  //close the modal by clicking on the container
+  closerClickModal(e) {
+    if (e.target === this.modalContainer) {
+      this.toggleModal()
     }
   }
 
-  if (modalShow && modalCloser && modalContainer) {
-    modalShow.addEventListener('click', showModal)
-    modalCloser.addEventListener('click', showModal)
-    modalContainer.addEventListener('click', closerModal)
+  //add events in elements of modal
+  addModalEvent() {
+    this.modalShow.addEventListener('click', this.eventToggleModal)
+    this.modalCloser.addEventListener('click', this.eventToggleModal)
+    this.modalContainer.addEventListener('click', this.closerClickModal)
+  }
+
+  init() {
+    if (this.modalShow && this.modalCloser && this.modalContainer) {
+      this.addModalEvent()
+    }
+    return this
   }
 }
