@@ -1,5 +1,5 @@
 import SoftScroll from './modules/soft-scroll.js'
-import initAnimationScroll from './modules/animation-scroll.js'
+import AnimationScroll from './modules/animation-scroll.js'
 import Accordion from './modules/accordion.js'
 import TabNav from './modules/tabnav.js'
 import Modal from './modules/modal.js'
@@ -29,7 +29,9 @@ fetchAnimal('../../assets/source/js/vendor/api-animal.json', '.grid-number')
 
 fetchBitcoin('https://blockchain.info/ticker', '.btc-price')
 
-initAnimationScroll()
+const animationScroll = new AnimationScroll('[data-anime="scroll"]')
+animationScroll.init()
+
 initDropdown()
 initMenuMobile()
 initDateObject()
