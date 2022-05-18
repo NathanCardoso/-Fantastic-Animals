@@ -1,6 +1,7 @@
 import NumberAnimation from './number-animation.js'
 
-export default function initFetchAnimal() {
+export default function fetchAnimal(url, target) {
+  //create div content information with the all animals
   function createAnimal(animal) {
     const div = document.createElement('div')
     div.classList.add('animal-number')
@@ -9,22 +10,33 @@ export default function initFetchAnimal() {
     return div
   }
 
-  async function fetchAnimal(url) {
-    try {
-      const animalResponse = await fetch(url)
-      const animalJson = await animalResponse.json()
-      const gridAnimal = document.querySelector('.grid-number')
+  //fill each animal in the dom
+  const gridAnimal = document.querySelector(target)
+  function fillAnimals(animal) {
+    const divAnimal = createAnimal(animal)
+    gridAnimal.appendChild(divAnimal)
+  }
 
-      animalJson.forEach((animal) => {
-        const divAnimal = createAnimal(animal)
-        gridAnimal.appendChild(divAnimal)
-      })
-      const numberAnimation = new NumberAnimation('[data-number]', '.number', 'active')
-      numberAnimation.init()
+  //animate number to the each animal
+  function animateNumberAnimals() {
+    const numberAnimation = new NumberAnimation('[data-number]', '.number', 'active')
+    numberAnimation.init()
+  }
+
+  //pull animals through a json file and create animal using createAnimals
+  async function createAnimals() {
+    try {
+      //fetch and wait response
+      const animalResponse = await fetch(url)
+      //tranformation the response in json
+      const animalJson = await animalResponse.json()
+
+      animalJson.forEach(animal => fillAnimals(animal))
+      animateNumberAnimals()
     } catch (erro) {
       console.log(erro)
     }
   }
 
-  fetchAnimal('../../assets/source/js/vendor/api-animal.json')
+  return createAnimals()
 }

@@ -7,7 +7,7 @@ import Tooltip from './modules/tooltip.js'
 import initDropdown from './modules/dropdown.js'
 import initMenuMobile from './modules/menu-mobile.js'
 import initDateObject from './modules/date-object.js'
-import initFetchAnimal from './modules/fetch-animal.js'
+import fetchAnimal from './modules/fetch-animal.js'
 import initFetchBitcoin from './modules/fetch-bitcoin.js'
 
 const softScroll = new SoftScroll('[data-menu="soft"] a[href^="#"]')
@@ -25,9 +25,10 @@ modal.init()
 const tooltip = new Tooltip('[data-tooltip]')
 tooltip.init()
 
+fetchAnimal('../../assets/source/js/vendor/api-animal.json', '.grid-number')
+
 initAnimationScroll()
 initDropdown()
 initMenuMobile()
 initDateObject()
-initFetchAnimal()
 initFetchBitcoin()
