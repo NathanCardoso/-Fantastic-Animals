@@ -8,7 +8,7 @@ import initDropdown from './modules/dropdown.js'
 import initMenuMobile from './modules/menu-mobile.js'
 import initDateObject from './modules/date-object.js'
 import fetchAnimal from './modules/fetch-animal.js'
-import initFetchBitcoin from './modules/fetch-bitcoin.js'
+import fetchBitcoin from './modules/fetch-bitcoin.js'
 
 const softScroll = new SoftScroll('[data-menu="soft"] a[href^="#"]')
 softScroll.init()
@@ -27,8 +27,9 @@ tooltip.init()
 
 fetchAnimal('../../assets/source/js/vendor/api-animal.json', '.grid-number')
 
+fetchBitcoin('https://blockchain.info/ticker', '.btc-price')
+
 initAnimationScroll()
 initDropdown()
 initMenuMobile()
 initDateObject()
-initFetchBitcoin()
