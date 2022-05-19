@@ -6,7 +6,7 @@ import Modal from './modules/modal.js'
 import Tooltip from './modules/tooltip.js'
 import Dropdown from './modules/dropdown.js'
 import MenuMobile from './modules/menu-mobile.js'
-import initDateObject from './modules/date-object.js'
+import DateObject from './modules/date-object.js'
 import fetchAnimal from './modules/fetch-animal.js'
 import fetchBitcoin from './modules/fetch-bitcoin.js'
 
@@ -38,4 +38,6 @@ dropdown.init()
 const menuMobile = new MenuMobile('[data-menu="button"]', '[data-menu="list"]')
 menuMobile.init()
 
-initDateObject()
+const dateObject = new DateObject('[data-wek]', 'open')
+dateObject.init()
+console.log(dateObject)
