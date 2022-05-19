@@ -5,7 +5,7 @@ import TabNav from './modules/tabnav.js'
 import Modal from './modules/modal.js'
 import Tooltip from './modules/tooltip.js'
 import Dropdown from './modules/dropdown.js'
-import initMenuMobile from './modules/menu-mobile.js'
+import MenuMobile from './modules/menu-mobile.js'
 import initDateObject from './modules/date-object.js'
 import fetchAnimal from './modules/fetch-animal.js'
 import fetchBitcoin from './modules/fetch-bitcoin.js'
@@ -35,5 +35,7 @@ animationScroll.init()
 const dropdown = new Dropdown('[data-dropdown]')
 dropdown.init()
 
-initMenuMobile()
+const menuMobile = new MenuMobile('[data-menu="button"]', '[data-menu="list"]')
+menuMobile.init()
+
 initDateObject()
