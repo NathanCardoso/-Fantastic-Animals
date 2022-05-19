@@ -4,7 +4,7 @@ import Accordion from './modules/accordion.js'
 import TabNav from './modules/tabnav.js'
 import Modal from './modules/modal.js'
 import Tooltip from './modules/tooltip.js'
-import initDropdown from './modules/dropdown.js'
+import Dropdown from './modules/dropdown.js'
 import initMenuMobile from './modules/menu-mobile.js'
 import initDateObject from './modules/date-object.js'
 import fetchAnimal from './modules/fetch-animal.js'
@@ -32,6 +32,8 @@ fetchBitcoin('https://blockchain.info/ticker', '.btc-price')
 const animationScroll = new AnimationScroll('[data-anime="scroll"]')
 animationScroll.init()
 
-initDropdown()
+const dropdown = new Dropdown('[data-dropdown]')
+dropdown.init()
+
 initMenuMobile()
 initDateObject()
