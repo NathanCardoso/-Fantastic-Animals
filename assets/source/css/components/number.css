@@ -22,4 +22,8 @@
   .grid-number {
       grid-column: 1;
   }
+
+  .grid-number h3 {
+    font-size: 1.5rem;
+  }
 }

@@ -285,12 +285,19 @@ html.maior {
 
 /*JavaScript Style - Accordion*/
 [data-anime="accordion"] dt::after {
-  content: '⬎';
+  content: '';
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  background: url('../../img/icon/arrow-red.svg') no-repeat center center;
   margin-left: 10px;
+  transform: rotate(90deg);
+  transition: transform .3s;
 }
 
 [data-anime="accordion"] dt.active::after {
-  content: '⬏';
+  content: '';
+transform: rotate(-90deg);
 }
 
 [data-anime="accordion"] dd {
@@ -324,4 +331,11 @@ html.maior {
 .js [data-anime="scroll"].active {
   opacity: 1;
   transform: translate3d(0, 0, 0);
+}
+
+.arrow-black {
+  background: url('../../img/icon/arrow-black.svg') no-repeat center center;
+  display: inline-block;
+  width: 8px;
+  height: 10px;
 }
