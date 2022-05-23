@@ -9,6 +9,7 @@ import MenuMobile from './modules/menu-mobile.js'
 import DateObject from './modules/date-object.js'
 import fetchAnimal from './modules/fetch-animal.js'
 import fetchBitcoin from './modules/fetch-bitcoin.js'
+import SlideNav from './modules/slide.js'
 
 const softScroll = new SoftScroll('[data-menu="soft"] a[href^="#"]')
 softScroll.init()
@@ -40,4 +41,7 @@ menuMobile.init()
 
 const dateObject = new DateObject('[data-wek]', 'open')
 dateObject.init()
-console.log(dateObject)
+
+const slide = new SlideNav('.slide', '.slide-wrapper')
+slide.init()
+slide.addControl('.custom-controls')
