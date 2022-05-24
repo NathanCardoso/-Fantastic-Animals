@@ -11,6 +11,21 @@ import fetchAnimal from './modules/fetch-animal.js'
 import fetchBitcoin from './modules/fetch-bitcoin.js'
 import SlideNav from './modules/slide.js'
 
+function preventPassive() {
+  if (typeof EventTarget !== 'undefined') {
+    const func = EventTarget.prototype.addEventListener;
+    EventTarget.prototype.addEventListener = function lala(type, fn, capture) {
+      this.func = func;
+      if (typeof capture !== 'boolean') {
+        capture = capture || {};
+        capture.passive = false;
+      }
+      this.func(type, fn, capture);
+    };
+  }
+}
+
+preventPassive()
 const softScroll = new SoftScroll('[data-menu="soft"] a[href^="#"]')
 softScroll.init()
 
@@ -26,7 +41,7 @@ modal.init()
 const tooltip = new Tooltip('[data-tooltip]')
 tooltip.init()
 
-fetchAnimal('../../assets/source/js/vendor/api-animal.json', '.grid-number')
+fetchAnimal('../assets/source/api/api-animal.json', '.grid-number')
 
 fetchBitcoin('https://blockchain.info/ticker', '.btc-price')
 
